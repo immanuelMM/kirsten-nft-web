@@ -1,0 +1,75 @@
+<h2>Resend confirmation instructions</h2>
+
+<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Resend confirmation instructions" %>
+  </div>
+<% end %>
+
+<%= render "users/shared/links" %>
+<body style="background-color: #666666;">
+	
+	<div >
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form validate-form">
+				<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+					  <%= render "users/shared/error_messages", resource: resource %>
+          <span class="login100-form-title p-b-43">
+					<h2>Resend confirmation instructions</h2>
+					</span>
+					
+					
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+             <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input100", required: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+            <span class="focus-input100"></span>
+						<span class="label-input100">Email</span>
+					</div>
+					
+		
+
+				
+			
+
+					<div class="container-login100-form-btn">
+                <%= f.submit "Resend confirmation instructions",  class:"login100-form-btn" %>
+					</div>
+					
+					<div class="text-center p-t-46 p-b-20">
+						<span class="txt2">
+			    	<%= render "users/shared/links" %>
+						</span>
+					</div>
+
+					<div class="login100-form-social flex-c-m">
+						<a href="https://www.facebook.com/kirstenregaladofashion" class="login100-form-social-item flex-c-m bg1 m-r-5">
+							<i class="fa fa-facebook-f" aria-hidden="true"></i>
+						</a>
+
+						<a href="https://twitter.com/kirstenregalado" class="login100-form-social-item flex-c-m bg2 m-r-5">
+							<i class="fa fa-twitter" aria-hidden="true"></i>
+						</a>
+
+						<a href="https://www.instagram.com/kirstenregalado/" class="login100-form-social-item flex-c-m bg2 m-r-5">
+							<i class="fa fa-instagram" aria-hidden="true"></i>
+						</a>
+					</div>
+          			<% end %>
+				</div>
+
+				<div class="login100-more image-me">
+		
+				 <%= image_tag "IMG_7269.jpg", height: 1000 %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+

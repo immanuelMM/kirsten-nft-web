@@ -1,0 +1,66 @@
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <br><br><br>
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a href="#" class="nav-link">
+                <div class="nav-profile-image">
+                  <%# <img src="../assets/images/logoblack2.png" alt="profile"> %>
+                  <%= image_tag "logoblack2.png" %>
+                  <span class="login-status online"></span>
+                  <!--change to offline or busy as needed-->
+                </div>
+                <div class="nav-profile-text d-flex flex-column">
+                  <span class="font-weight-bold mb-2">NFT</span>
+                  <span class="text-secondary text-small">Collection</span>
+                </div>
+                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+              </a>
+            </li>
+            <!-- <img src="../assets/images/logoblack2.png" alt="logo" /> -->
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost:3000/home/user">
+                <span class="menu-title">Anouncement Board</span>
+                <i class="mdi mdi-home menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">My Collection</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <%= link_to "Colorful Marine", user_design_path, class:"nav-link"%></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Design 2</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Design 3</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Design 4</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Design 4</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Design 5</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Design 6</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Design 7</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Design 8</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="biding/biding.html">
+                <span class="menu-title">Bidding</span>
+                <i class="mdi mdi-contacts menu-icon"></i>
+              </a>
+              
+            </li> 
+             <li class="nav-item">
+              <a class="nav-link" href="biding/biding.html">
+                <span class="menu-title">Setting</span>
+                <i class="mdi mdi-contacts menu-icon"></i>
+              </a>
+              
+            </li> 
+            <li class="nav-item">
+              <div class="nav-link" href="biding/biding.html">
+                  <%= button_to "Log out", destroy_user_session_path,class:"btn btn-info", method: :delete, data: { turbo: "false" } %>             
+              </div>  
+            </li> 
+          </ul>
+        </nav>
