@@ -1,4 +1,15 @@
 class ApplicationController < ActionController::Base
+    protect_from_forgery with: :exception
+
+    before_action :configure_permitted_parameters, if: :devise_controller?
+
+    protected
+
+         def configure_permitted_parameters
+              devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name,:firstname,:middlename,:address,:number, :email, :password)}
+
+              devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name,:firstname,:middlename,:address,:number, :email, :password, :current_password)}
+         end
     def after_sign_in_path_for(resource)
         case resource
         when @user
@@ -35,14 +46,4 @@ require 'uri'
 require 'net/http'
 require 'openssl'
 
-url = URI("https://api.opensea.io/api/v1/collection/doodles-official")
-
-http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = true
-
-request = Net::HTTP::Get.new(url)
-
-response = http.request(request)
-@nft =  response.read_body
-puts response.read_body
 end

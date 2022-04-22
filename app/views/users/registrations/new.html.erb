@@ -17,46 +17,42 @@
 							</div>
 						<% end %>
 					</span>
-										
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-           	<%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input100", required: true %>
-            <span class="focus-input100"></span>
-						<span class="label-input100">Surname</span>
+						<%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input100", required: true,placeholder:"Email" %>
+						<span class="focus-input100"></span>
+					</div>				
+					<div class="wrap-input100 validate-input">
+						<%= f.text_field :name, autofocus: true, autocomplete: "email", class:"input100", required: true,placeholder:"Surname" %>
+						<span class="focus-input100"></span>
 					</div>
-          	<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-           	<%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input100", required: true %>
-            <span class="focus-input100"></span>
-						<span class="label-input100">Firstname</span>
+					<div class="wrap-input100 validate-input">
+						<%= f.text_field :firstname, autofocus: true, autocomplete: "email", class:"input100", required: true,placeholder:"Firstname" %>
+						<span class="focus-input100"></span>
 					</div>
-          	<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-           	<%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input100", required: true %>
-            <span class="focus-input100"></span>
-						<span class="label-input100">Middle name</span>
+					<div class="wrap-input100 validate-input">
+						<%= f.text_field :middlename, autofocus: true, autocomplete: "email", class:"input100", required: true,placeholder:"middlename" %>
+						<span class="focus-input100"></span>
 					</div>
-          	<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-           	<%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input100", required: true %>
-            <span class="focus-input100"></span>
-						<span class="label-input100">Address</span>
+					<div class="wrap-input100 validate-input">
+						<%= f.text_field :address, autofocus: true, autocomplete: "email", class:"input100", required: true,placeholder:"address" %>
+						<span class="focus-input100"></span>
 					</div>
-          	<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-           	<%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input100", required: true %>
-            <span class="focus-input100"></span>
-						<span class="label-input100">Number</span>
+					<div class="wrap-input100 validate-input">
+						<%= f.text_field :number, autofocus: true, autocomplete: "email", class:"input100", required: true,placeholder:"Number" %>
+						<span class="focus-input100"></span>
 					</div>
-          <br><br><br><br><br>
+          			<br><br><br><br><br>
 					
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
-              <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
-              <% end %><br />
-              <%= f.password_field :password, autocomplete: "new-password", class:"input100" , required: true %>
-            <span class="focus-input100"></span>
-						<span class="label-input100">Password</span>
+						<%= f.password_field :password, autocomplete: "new-password", class:"input100" , required: true,placeholder:"Password" %>
+						<span class="focus-input100"></span>
+						<% if @minimum_password_length %>
+							<em>(<%= @minimum_password_length %> characters minimum)</em>
+						<% end %><br />
 					</div>
-          	<div class="wrap-input100 validate-input" data-validate="Password is required">
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"input100" , required: true %>
-            <span class="focus-input100"></span>
-						<span class="label-input100">Password</span>
+						<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<%= f.password_field :password_confirmation, autocomplete: "new-password", class:"input100" , required: true,placeholder:"re Enter-password" %>
+						<span class="focus-input100"></span>
 					</div>
 
 					<div class="flex-sb-m w-full p-t-3 p-b-32">

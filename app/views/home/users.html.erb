@@ -54,9 +54,7 @@
             <div class="page-header">
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white me-2">
-                  <i class="mdi mdi-home"></i>
-                  
-                </span> Anouncement board
+                  <i class="mdi mdi-face-profile"></i>
               </h3>
               <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
@@ -69,70 +67,28 @@
             <div class="row">
               <div class="col-12 grid-margin stretch-card">
                                 <div class="card-body">
-                    <h4 class="card-title">ADD</h4>
+                    <h4 class="card-title">Users</h4>
                     <table class="table table-bordered">
                       <thead>
                         <tr>
-                          <th> # </th>
-                          <th>Title</th>
-                          <th> description</th>
-                          <th> Date</th>
-						   <th> Image</th>
+                          <th>email</th>
+                          <th>Name</th>
+                          <th>Address</th>
+                          <th>number</th>
 						   <th> Action</th>
                         </tr>
                       </thead>
+                      <% @user.each do|u| %>
                       <tbody>
                         <tr class="table-info">
-                          <td> 1 </td>
-                          <td>sample</td>
-                          <td>
-							Lorem LoremLoremLoremLorem fsdfdsf
-						  </td>
-                          <td>04-22-2022</td>
-						   <td>N/A</td>
-						    <td>update/delete</td>
-                        </tr>
-                        <tr class="table-info">
-                          <td> 1 </td>
-                          <td>sample</td>
-                          <td>
-							Lorem LoremLoremLoremLorem fsdfdsf
-						  </td>
-                          <td>04-22-2022</td>
-						   <td>N/A</td>
-						    <td>update/delete</td>
-                        </tr>
-                       <tr class="table-info">
-                          <td> 1 </td>
-                          <td>sample</td>
-                          <td>
-							Lorem LoremLoremLoremLorem fsdfdsf
-						  </td>
-                          <td>04-22-2022</td>
-						   <td>N/A</td>
-						    <td>update/delete</td>
-                        </tr>
-                      <tr class="table-info">
-                          <td> 1 </td>
-                          <td>sample</td>
-                          <td>
-							Lorem LoremLoremLoremLorem fsdfdsf
-						  </td>
-                          <td>04-22-2022</td>
-						   <td>N/A</td>
-						    <td>update/delete</td>
-                        </tr>
-                        <tr class="table-info">
-                          <td> 1 </td>
-                          <td>sample</td>
-                          <td>
-							Lorem LoremLoremLoremLorem fsdfdsf
-						  </td>
-                          <td>04-22-2022</td>
-						   <td>N/A</td>
-						    <td>update/delete</td>
+                          <td><%= u.email%></td>
+                          <td><%= u.firstname%></td>
+                           <td><%= u.address%></td>
+                           <td><%= u.number%></td>
+                             <td>delete</td>
                         </tr>
                       </tbody>
+                      <%end%>
                     </table>
                   </div>
               </div>

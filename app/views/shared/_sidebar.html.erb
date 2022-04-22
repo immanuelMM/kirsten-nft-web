@@ -1,18 +1,39 @@
+        <style>
+        .disable { 
+        pointer-events: none; 
+        user-select: none; 
+        opacity: 0.50; 
+    } 
+        </style>
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <br><br><br>
           <ul class="nav">
             <li class="nav-item nav-profile">
               <a href="#" class="nav-link">
+                <% if !current_user %>
+                <div class="nav-profile-image">
+                  <%# <img src="../assets/images/logoblack2.png" alt="profile"> %>
+                  <%= image_tag "user.png" %>
+                  <span class="login-status online"></span>
+                  <!--change to offline or busy as needed-->
+                </div>
+              
+                <div class="nav-profile-text d-flex flex-column">
+                  <span class="font-weight-bold mb-2">ADMINISTRATION</span>
+                  <span class="text-secondary text-small">User</span>
+                </div>
+                <%else%>
                 <div class="nav-profile-image">
                   <%# <img src="../assets/images/logoblack2.png" alt="profile"> %>
                   <%= image_tag "logoblack2.png" %>
                   <span class="login-status online"></span>
                   <!--change to offline or busy as needed-->
                 </div>
-                <div class="nav-profile-text d-flex flex-column">
+                 <div class="nav-profile-text d-flex flex-column">
                   <span class="font-weight-bold mb-2">NFT</span>
                   <span class="text-secondary text-small">Collection</span>
                 </div>
+                <%end%>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
             </li>
@@ -23,44 +44,42 @@
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <span class="menu-title">My Collection</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+            <% if !current_user %>
+             <li class="nav-item">
+              <a class="nav-link" href=<%=users_path%>>
+                <span class="menu-title">Users</span>
+                <i class="mdi mdi-face-profile menu-icon"></i>
               </a>
-              <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <%= link_to "Colorful Marine", user_design_path, class:"nav-link"%></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Design 2</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Design 3</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Design 4</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Design 4</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Design 5</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Design 6</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Design 7</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Design 8</a></li>
-                </ul>
-              </div>
-            </li>
+              <%else%>
+            </li> 
             <li class="nav-item">
-              <a class="nav-link" href="biding/biding.html">
+              <a class="nav-link" href=<%=user_profile_path%>>
+                <span class="menu-title">My profile</span>
+                <i class="mdi mdi-face-profile menu-icon"></i>
+              </a>
+              <%end%>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="biding/biding.html" >
                 <span class="menu-title">Bidding</span>
                 <i class="mdi mdi-contacts menu-icon"></i>
               </a>
               
             </li> 
+              <% if !current_user %>
              <li class="nav-item">
-              <a class="nav-link" href="biding/biding.html">
+              <a class="nav-link" href=<%= edit_admin_registration_path(current_admin)%>>
                 <span class="menu-title">Setting</span>
-                <i class="mdi mdi-contacts menu-icon"></i>
+                <i class="mdi mdi-settings-box menu-icon"></i>
               </a>
               
             </li> 
             <li class="nav-item">
               <div class="nav-link" href="biding/biding.html">
-                  <%= button_to "Log out", destroy_user_session_path,class:"btn btn-info", method: :delete, data: { turbo: "false" } %>             
+                  <%= button_to "Log out", destroy_user_session_path,class:"menu-title btn btn-outline-primary", method: :delete, data: { turbo: "false" } %>             
+                  <i class="mdi mdi-logout menu-icon"></i>
               </div>  
             </li> 
+            <%end%>
           </ul>
         </nav>

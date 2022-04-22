@@ -1,23 +1,21 @@
      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="index.html"><%= image_tag "logoblack1.png" %></a>
+        <%if !current_user%>
+         <a class="navbar-brand brand-logo" href="index.html"><h4>ADMINISTRATION</h4></a>
+               <a class="navbar-brand brand-logo-mini" href="index.html"><%= image_tag "logoblack1.png" %>
+           </a>
+           <%else%>
+     
+              <a class="navbar-brand brand-logo" href="index.html"><%= image_tag "logoblack1.png" %></a>
           <a class="navbar-brand brand-logo-mini" href="index.html"><%= image_tag "logoblack1.png" %>
            </a>
+           <%end%>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-stretch">
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-menu"></span>
           </button>
-          <div class="search-field d-none d-md-block">
-            <form class="d-flex align-items-center h-100" action="#">
-              <div class="input-group">
-                <div class="input-group-prepend bg-transparent">
-                  <i class="input-group-text border-0 mdi mdi-magnify"></i>
-                </div>
-                <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects">
-              </div>
-            </form>
-          </div>
+          
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
@@ -26,15 +24,19 @@
                   <span class="availability-status online"></span>
                 </div>
                 <div class="nav-profile-text">
-                  <p class="mb-1 text-black">Mawe</p>
+                <% if !current_user %>
+                  <p class="mb-1 text-black"><%= current_admin.email%></p>
+                  <%else %>
+                   <p class="mb-1 text-black"><%= current_user.firstname%></p>
+                  <%end%>
                 </div>
               </a>
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="<%=user_profile_path%>">
                   <i class="mdi mdi-cached me-2 text-success"></i>Profile </a>
                 <div class="dropdown-divider"></div>
                 <div class="dropdown-item">
-                  <%= button_to "Log out", destroy_user_session_path,class:"btn btn-info", method: :delete, data: { turbo: "false" } %>
+                  <%= button_to "Log out", destroy_user_session_path,class:"btn btn-outline-primary", method: :delete, data: { turbo: "false" } %>
                 </div>
               </div>
             </li>
